@@ -6,7 +6,7 @@ Feature: Validate Different Options
     When I tap on Views
     Then I tap on the Expandables List
     Then I tap on the Custom Adaptor
-    And validate the names
+    And validate the names 
     
-  Scenario: 
-
+    
+  

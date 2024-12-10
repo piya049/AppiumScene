@@ -18,30 +18,30 @@ import io.cucumber.java.Before;
 public class Hook {
 
 	private static WebDriver driver;
-//	public AppiumDriverLocalService service;
+	public AppiumDriverLocalService service;
 
-	@Before("@automation")
-	public void setUp() {
-
-		System.setProperty("webdriver.chrome.driver",
-				"C://Users//Pshende//Downloads//chromedriver-win64//chromedriver-win64//chromedriver.exe");
-		driver = new ChromeDriver();
-		driver.manage().window().maximize();
-		driver.get("https://rahulshettyacademy.com/angularpractice/");
-	}
-
-//	@Before("@appium")
-//	public void setUpAppium() throws MalformedURLException {
+//	@Before("@automation")
+//	public void setUp() {
 //
-//		service = new AppiumServiceBuilder().withAppiumJS(new File("C://Users//Pshende//AppData//Roaming//npm//node_modules//appium//build//lib//main.js"))
-//				.withIPAddress("127.0.0.1").usingPort(4723).build();
-//		service.start();
-//		
-//		UiAutomator2Options  options = new UiAutomator2Options();
-//		options.setDeviceName("PixelEmulator");
-//		options.setApp("D://cucumberseleniumappium//App//ApiDemos-debug.apk"); 
-//		driver = new AndroidDriver(new URL("http://127.0.0.1:4723"), options);
+//		System.setProperty("webdriver.chrome.driver",
+//				"C://Users//Pshende//Downloads//chromedriver-win64//chromedriver-win64//chromedriver.exe");
+//		driver = new ChromeDriver();
+//		driver.manage().window().maximize();
+//		driver.get("https://rahulshettyacademy.com/angularpractice/");
 //	}
+
+	@Before("@appium")
+	public void setUpAppium() throws MalformedURLException {
+
+		service = new AppiumServiceBuilder().withAppiumJS(new File("C://Users//Pshende//AppData//Roaming//npm//node_modules//appium//build//lib//main.js"))
+				.withIPAddress("127.0.0.1").usingPort(4723).build();
+		service.start();
+		
+		UiAutomator2Options  options = new UiAutomator2Options();
+		options.setDeviceName("PixelEmulator");
+		options.setApp("D://cucumberseleniumappium//App//General-Store.apk"); 
+		driver = new AndroidDriver(new URL("http://127.0.0.1:4723"), options);
+	}
 
 	@After
 	public void tearDown() {

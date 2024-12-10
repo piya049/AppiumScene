@@ -8,7 +8,7 @@ import io.cucumber.testng.CucumberOptions;
 //@RunWith(Cucumber.class)
 
 @CucumberOptions(features = { "src//test//java//com//appium//AppiumScene//features" }, glue = { "stepDefinations",
-		"utility", "runner", "pageObjects" }, tags = "@wifi", plugin = { "pretty", "html:target/cucumber" })
+		"utility", "runner", "pageObjects" }, tags = "@appiumAutomation", plugin = { "pretty", "html:target/cucumber" })
 @Test
 public class RunTest extends AbstractTestNGCucumberTests {
 
